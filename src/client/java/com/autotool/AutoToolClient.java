@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.MaceItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -44,8 +45,8 @@ public final class AutoToolClient implements ClientModInitializer {
 			return InteractionResult.PASS;
 		}
 
-		// Don't treat swords as tools — they're weapons.
-		if (currentStack.is(ItemTags.SWORDS)) {
+		// Don't treat swords or maces as tools — they're weapons.
+		if (currentStack.is(ItemTags.SWORDS) || currentStack.getItem() instanceof MaceItem) {
 			return InteractionResult.PASS;
 		}
 
