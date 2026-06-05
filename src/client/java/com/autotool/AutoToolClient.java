@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.protocol.game.ServerboundSetCarriedItemPacket;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Inventory;
@@ -40,6 +41,11 @@ public final class AutoToolClient implements ClientModInitializer {
 
 		// Only auto-switch if the player is already holding an item with tool properties.
 		if (currentStack.get(DataComponents.TOOL) == null) {
+			return InteractionResult.PASS;
+		}
+
+		// Don't treat swords as tools — they're weapons.
+		if (currentStack.is(ItemTags.SWORDS)) {
 			return InteractionResult.PASS;
 		}
 
