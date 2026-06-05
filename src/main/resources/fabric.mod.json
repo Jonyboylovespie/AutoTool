@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "auto_tool",
+	"version": "${version}",
+	"name": "Auto Tool",
+	"description": "Automatically switches to the optimal tool when starting to break a block.",
+	"authors": [
+		"Jonyboylovespie"
+	],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.autotool.AutoToolClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
